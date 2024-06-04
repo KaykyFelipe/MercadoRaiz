@@ -1,0 +1,14 @@
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.AssemblyInfoInputs.cache
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.AssemblyInfo.cs
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.CoreCompileInputs.cache
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.exe
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.deps.json
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.runtimeconfig.json
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.pdb
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\refint\PIM III.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.pdb
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.genruntimeconfig.cache
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\ref\PIM III.dll
