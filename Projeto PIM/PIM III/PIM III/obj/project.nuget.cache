@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "MapEL9h3F5SDQn/XufC78StNOcgGpjuMi/+FEd4kceQAswslORwoFEPUJN2UR8BqWyASxbGHNpRRJ37h1KfmtA==",
+  "dgSpecHash": "8NBxLvHzOoD9KE5vUoTpruk/tG5hI10hWroOwhNz13JlieQfZBjHV5UxNB+otCV/xJ21Gyz+enYoV0kimFu9gQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MW Contabilidade\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\MW Contabilidade\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\MW Contabilidade\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\MW Contabilidade\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -12,3 +12,10 @@ C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\P
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.pdb
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.genruntimeconfig.cache
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\ref\PIM III.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.AssemblyReference.cache
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.sourcelink.json
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Dapper.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Npgsql.dll
+C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.Up2Date

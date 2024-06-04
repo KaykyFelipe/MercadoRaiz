@@ -1,45 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PIM_III
 {
-    internal class Usuario
+        public class Usuario
     {
 
-        public string nome = null;
-        private string cpf;
-        private string telefone;
-        private string endereço;
-        private string cep;
-        private string email;
-        private string senha;
+        public string nome { get; private set; } 
+        public string cpf { get; private set; } 
+        public string email { get; private set; }
 
 
+        public Usuario (string nome,
+                     string cpf,
+                     string email)
+        {
+            this.nome = nome;
+            this.cpf = cpf;
+            this.email = email;
 
-
-        //Apresentação do Programa
-
-
-
-        public void Cadastro() {
-
-           Console.WriteLine("Digite seu Nome: \n");
-           nome = Console.ReadLine(); //GUARDAR NO BANCO DE DADOS
-
-           Console.WriteLine("Digite seu Telefone: \n");
-
-           Console.WriteLine("Digite seu CEP: \n");
-
-           Console.WriteLine("Digite seu Endereço: \n");
-
-           Console.WriteLine("Digite seu E-mail: \n");
-
-           Console.WriteLine("Crie uma Senha Numerica de 4 digitos: \n");
-
+            return;
         }
 
     }
+       
 }
