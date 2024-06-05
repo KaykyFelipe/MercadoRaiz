@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Compile Remove="Gerenciamento de Dados\Cadastro_Produtor.cs" />
+    <Compile Remove="Gerenciamento de Dados\Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>
