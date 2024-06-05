@@ -2,11 +2,25 @@
 using PIM_III;
 using PIM_III.Infraestrutura;
 
-Console.WriteLine("Hello, World!");
 
-Usuario teste = new Usuario("Kayky", "1223344312", "gghhj@gmai");
+Usuario usuario_teste = new Usuario();
 
-DataRepository salvardados = new DataRepository();
+usuario_teste.inicio();
 
-salvardados.Add(teste);
 
+
+
+
+
+
+
+
+
+
+
+
+DataRepository data_base = new DataRepository();
+
+data_base.Cadastro_Cliente_DB(usuario_teste);
+
+data_base.Cadastro_Produtor_DB(usuario_teste);

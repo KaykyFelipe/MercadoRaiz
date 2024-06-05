@@ -19,3 +19,24 @@ C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\P
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Npgsql.dll
 C:\Users\MW Contabilidade\Documents\GitHub\Projeto PIM\PIM\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.Up2Date
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.exe
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.deps.json
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.runtimeconfig.json
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\PIM III.pdb
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Dapper.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\bin\Debug\net8.0\Npgsql.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.AssemblyReference.cache
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.AssemblyInfoInputs.cache
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.AssemblyInfo.cs
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.CoreCompileInputs.cache
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.sourcelink.json
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.csproj.Up2Date
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\refint\PIM III.dll
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.pdb
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\PIM III.genruntimeconfig.cache
+D:\Git Hub Repositorios\PIM-III\Projeto PIM\PIM III\PIM III\obj\Debug\net8.0\ref\PIM III.dll
