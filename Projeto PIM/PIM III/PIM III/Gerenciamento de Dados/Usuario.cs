@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace PIM_III
 {
-        public class Usuario
-    { 
+    public class Usuario
+    {
 
 
         public string nome { get; set; }
         public string numero_celular { get; set; }
         public string email { get; set; }
+        public string email_proprietario { get; set; }
         public string senha { get; set; }
         public string rua { get; set; }
         public string numero { get; set; }
@@ -23,40 +24,41 @@ namespace PIM_III
         public string tipo { get; set; }
         public float tamanho { get; set; }
         public float area_plantada { get; set; }
+        public string chave_pix { get; set; }
 
-        public void inicio() 
+        public void inicio()
         {
 
-         int op;
+            int op;
 
-                Console.WriteLine("Bem vindo ao App MercadoRaiz!!\n\n 1)Login\n2)Cadastrar-se\n\nDigite o numero referente a opção desejada: ");
-                op = int.Parse(Console.ReadLine());
+            Console.WriteLine("Bem vindo ao App MercadoRaiz!!\n\n 1)Login\n2)Cadastrar-se\n\nDigite o numero referente a opção desejada: ");
+            op = int.Parse(Console.ReadLine());
 
 
-                //OPÇÃOLOGIN
-                if (op == 1)
+            //OPÇÃOLOGIN
+            if (op == 1)
+            {
+            }
+
+
+            //OPÇÃO CADASTRO
+            else if (op == 2)
+            {
+
+                while (true)
                 {
+                    Console.WriteLine("1)Produtor\n2)Cliente\n\nDigite o numero referente a opção deseja:");
+                    op = int.Parse(Console.ReadLine());
+
+                    if (op == 1) { Cadastro_Produtor(); break; }
+                    else if (op == 2) { Cadastro_Cliente(); break; }
+                    else Console.WriteLine("\n\nDigite um numero valido\n\n");
+
                 }
 
+            }
 
-                //OPÇÃO CADASTRO
-                else if (op == 2)
-                {
 
-                    while (true)
-                    {
-                        Console.WriteLine("1)Produtor\n2)Cliente\n\nDigite o numero referente a opção deseja:");
-                        op = int.Parse(Console.ReadLine());
-
-                        if (op == 1) { Cadastro_Produtor(); break; }
-                        else if (op == 2) { Cadastro_Cliente(); break; }
-                        else Console.WriteLine("\n\nDigite um numero valido\n\n");
-
-                    }
-
-                }
-
-            
         }
 
         public void Cadastro_Cliente()
@@ -72,7 +74,7 @@ namespace PIM_III
 
             Console.WriteLine("Crie uma senha de até 10 digitos: ");
             senha = Console.ReadLine();
-           
+
         }
 
         public void Cadastro_Produtor()
@@ -89,6 +91,15 @@ namespace PIM_III
             Console.WriteLine("Crie uma senha de até 10 digitos: ");
             senha = Console.ReadLine();
 
+            Console.WriteLine("Digite sua chave PIX para pagamentos: ");
+            chave_pix = Console.ReadLine();
+
+            Cadastro_Propriedade();
+
+        }
+        public void Cadastro_Propriedade()
+        {
+
             Console.WriteLine("Digite sua rua: ");
             rua = Console.ReadLine();
 
@@ -97,6 +108,8 @@ namespace PIM_III
 
             Console.WriteLine("Digite o seu bairro: ");
             bairro = Console.ReadLine();
+
+            email_proprietario = email;
 
             Console.WriteLine("Digite sua cidade: ");
             cidade = Console.ReadLine();
@@ -112,12 +125,10 @@ namespace PIM_III
 
             Console.WriteLine("Digite o tamanho da area de plantio: ");
             area_plantada = float.Parse(Console.ReadLine());
-           
+
         }
 
-
     }
-
 }
        
 

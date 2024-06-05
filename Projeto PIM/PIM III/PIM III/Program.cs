@@ -9,18 +9,6 @@ usuario_teste.inicio();
 
 
 
-
-
-
-
-
-
-
-
-
-
 DataRepository data_base = new DataRepository();
-
-data_base.Cadastro_Cliente_DB(usuario_teste);
-
 data_base.Cadastro_Produtor_DB(usuario_teste);
+data_base.Cadastro_Propriedade_DB(usuario_teste);
