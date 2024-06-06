@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PIM III")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b075f4ad1eaac4fe46dac75a7e3d4c81f4f43e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99e86b21a2607e8315eac7619669b307764d3812")]
 [assembly: System.Reflection.AssemblyProductAttribute("PIM III")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PIM III")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
