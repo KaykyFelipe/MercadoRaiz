@@ -21,7 +21,7 @@ namespace PIM_III.Infraestrutura
             return result == 1;
         }
 
-        public bool Cadastro_Produtor_DB(Usuario dados)
+        public void Cadastro_Produtor_DB(Usuario dados)
         {
 
             using var conn = new DBConnection();
@@ -31,10 +31,10 @@ namespace PIM_III.Infraestrutura
 
             var result = conn.Connection.Execute(sql: query, param: dados);
 
-            return result == 1;
+           
         }
 
-        public bool Cadastro_Propriedade_DB(Usuario dados)
+        public void Cadastro_Propriedade_DB(Usuario dados)
         {
 
             using var conn = new DBConnection();
@@ -44,37 +44,38 @@ namespace PIM_III.Infraestrutura
 
             var result = conn.Connection.Execute(sql: query, param: dados);
 
-            return result == 1;
+           
 
 
 
         }
-        //_________________________________________________________________________________________________________________________________
-
+        
         //SELECT __________________________________________________________________________________________________
         public bool Login_Cliente_DB(Usuario dados)
         {
-
             using var conn = new DBConnection();
 
-            string query = @"SELECT email FROM cliente WHERE email = '+@email';";
+            string query_email = @"SELECT email, senha FROM cliente WHERE email = @email AND senha = @senha;";
 
-            var result = conn.Connection.Execute(sql: query, param: dados);
+            var result_DB_Validation = conn.Connection.QueryFirstOrDefault<string>(sql: query_email, param: new { email = dados.email, senha = dados.senha });
 
-            var test = dados;
-
-            Console.WriteLine(dados);
-
-            return result == 1;
-
-            
-
-
-
+            if (result_DB_Validation != null) return true;
+            else return false;
 
         }
 
+        public bool Login_Produtor_DB(Usuario dados)
+        {
+            using var conn = new DBConnection();
 
+            string query_email = @"SELECT email, senha FROM produtor WHERE email = @email AND senha = @senha;";
+
+            var result_DB_Validation = conn.Connection.QueryFirstOrDefault<string>(sql: query_email, param: new { email = dados.email, senha = dados.senha });
+
+            if (result_DB_Validation != null) return true;
+            else return false;
+
+        }
 
     }
 

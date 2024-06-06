@@ -10,7 +10,9 @@ DataRepository data_base = new DataRepository();//SALVAR DADOS NO BANCO
 //GERENCIAMENTO DE CADASTROS
 Produtor usuario_produtor = new Produtor();
 Cliente usuario_cliente = new Cliente();
+//GERENCIAMENTO DE LOGIN
 Login_Cliente login_cliente = new Login_Cliente();
+Login_Produtor login_produtor = new Login_Produtor();
 
 
 
@@ -31,17 +33,19 @@ if (op == 1)
 
         if (op == 1)
         {
-            
+            login_produtor.LoginProdutor();
+            bool retorno = data_base.Login_Produtor_DB(login_produtor);
+            login_produtor.Validation_LoginProdutor(retorno);
+            break;
 
         }
         else if (op == 2)
         {
 
            login_cliente.LoginCliente();
-           data_base.Login_Cliente_DB(login_cliente);
-
-
-            break;
+           bool retorno = data_base.Login_Cliente_DB(login_cliente); 
+           login_cliente.Validation_LoginCliente(retorno);
+           break;
 
         }
         else Console.WriteLine("\n\nDigite um numero valido\n\n");

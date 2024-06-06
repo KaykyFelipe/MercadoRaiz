@@ -14,13 +14,22 @@ namespace PIM_III.Gerenciamento_Login
 
                 Console.WriteLine("Digite o E-mail");
                 email = Console.ReadLine();
-
-
-            /*
+            
                 Console.WriteLine("Digite a Senha");
                 senha = Console.ReadLine();
 
-            */
+           
+
+        }
+        public void Validation_LoginCliente(bool retorno)
+        {
+
+            if (retorno == true) {
+
+             Console.WriteLine("Login Efetuado!!");
+
+            }
+            else Console.WriteLine("Login Invalido!!");
 
         }
     }
