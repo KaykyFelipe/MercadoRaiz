@@ -136,6 +136,9 @@ internal class Produtor : Usuario
 
         Console.Write("\nDigite o tamanho da área de plantio: ");
         area_plantada = float.Parse(Console.ReadLine());
+
+        Console.WriteLine("\n\nCadastro Realizado!!!\n\n");
+
     }
 }
 

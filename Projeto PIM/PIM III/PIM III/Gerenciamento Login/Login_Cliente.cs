@@ -28,12 +28,13 @@ namespace PIM_III.Gerenciamento_Login
                 {
 
                     Console.WriteLine("Login Efetuado!!");
-                   
+                   //**ACESSO A INTERFACER
 
                 }
                 else
                 {
                     Console.WriteLine("Login Invalido!!");
+                //**REFAZER CADASTRO(LOOP)
                 }
                     
             

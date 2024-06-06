@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace PIM_III.Interfaces
 {
-    public class Interface_Cliente
+    public class Interface_Produtor : Usuario
     {
+       
 
-        //lista de produtos anunciados
+        public void Controle_Estoque() 
+        {
+
+            Console.WriteLine(email_proprietario);
+        }
 
     }
 }
