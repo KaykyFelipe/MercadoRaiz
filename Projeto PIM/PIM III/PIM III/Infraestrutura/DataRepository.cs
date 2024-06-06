@@ -1,16 +1,13 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace PIM_III.Infraestrutura
 {
     public class DataRepository
     {
 
-
+        //SALVAR DADOS DE CADASTROS NO DB__________________________________________________________________________________________________
         public bool Cadastro_Cliente_DB(Usuario dados)
         {
 
@@ -37,7 +34,6 @@ namespace PIM_III.Infraestrutura
             return result == 1;
         }
 
-
         public bool Cadastro_Propriedade_DB(Usuario dados)
         {
 
@@ -53,6 +49,32 @@ namespace PIM_III.Infraestrutura
 
 
         }
+        //_________________________________________________________________________________________________________________________________
+
+        //SELECT __________________________________________________________________________________________________
+        public bool Login_Cliente_DB(Usuario dados)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"SELECT email FROM cliente WHERE email = '+@email';";
+
+            var result = conn.Connection.Execute(sql: query, param: dados);
+
+            var test = dados;
+
+            Console.WriteLine(dados);
+
+            return result == 1;
+
+            
+
+
+
+
+        }
+
+
 
     }
 

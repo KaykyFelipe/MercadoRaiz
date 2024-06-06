@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Gerenciamento de Dados\Cadastro_Produtor.cs" />
-    <Compile Remove="Gerenciamento de Dados\Class1.cs" />
+    <Compile Remove="Gerenciamento Cadastros\Cadastro_Produtor.cs" />
+    <Compile Remove="Gerenciamento Cadastros\Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>

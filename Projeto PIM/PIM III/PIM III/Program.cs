@@ -1,15 +1,18 @@
 ﻿
 using PIM_III;
-using PIM_III.Gerenciamento_de_Dados;
+using PIM_III.Gerenciamento_Cadastros;
+using PIM_III.Gerenciamento_Login;
 using PIM_III.Infraestrutura;
 
+DataRepository data_base = new DataRepository();//SALVAR DADOS NO BANCO
 
 
-
+//GERENCIAMENTO DE CADASTROS
 Produtor usuario_produtor = new Produtor();
 Cliente usuario_cliente = new Cliente();
+Login_Cliente login_cliente = new Login_Cliente();
 
-DataRepository data_base = new DataRepository();
+
 
 
 int op;
@@ -21,7 +24,31 @@ int op;
 //OPÇÃOLOGIN________________________________________________________________________________________________________________________________________________________________________
 if (op == 1)
     {
+    while (true)
+    {
+        Console.WriteLine("1)Login Produtor\n2)Login Cliente\n\nDigite o numero referente a opção deseja:");
+        op = int.Parse(Console.ReadLine());
+
+        if (op == 1)
+        {
+            
+
+        }
+        else if (op == 2)
+        {
+
+           login_cliente.LoginCliente();
+           data_base.Login_Cliente_DB(login_cliente);
+
+
+            break;
+
+        }
+        else Console.WriteLine("\n\nDigite um numero valido\n\n");
+
     }
+
+}
 
 
 //OPÇÃO CADASTRO____________________________________________________________________________________________________________________________________________________________________
