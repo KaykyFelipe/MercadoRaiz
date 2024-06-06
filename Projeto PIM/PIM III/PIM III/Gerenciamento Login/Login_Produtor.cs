@@ -31,7 +31,6 @@ namespace PIM_III.Gerenciamento_Login
                 Console.WriteLine("Login Efetuado!!");
 
             }
-
             else Console.WriteLine("Login Invalido!!");
 
         }

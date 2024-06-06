@@ -23,14 +23,20 @@ namespace PIM_III.Gerenciamento_Login
         }
         public void Validation_LoginCliente(bool retorno)
         {
+            
+                if (retorno == true)
+                {
 
-            if (retorno == true) {
+                    Console.WriteLine("Login Efetuado!!");
+                   
 
-             Console.WriteLine("Login Efetuado!!");
-
-            }
-            else Console.WriteLine("Login Invalido!!");
-
+                }
+                else
+                {
+                    Console.WriteLine("Login Invalido!!");
+                }
+                    
+            
         }
     }
 }

@@ -50,7 +50,7 @@ namespace PIM_III.Infraestrutura
 
         }
         
-        //SELECT __________________________________________________________________________________________________
+        //SELECT PARA VALDIAÇÃO DE LOGIN__________________________________________________________________________________________________
         public bool Login_Cliente_DB(Usuario dados)
         {
             using var conn = new DBConnection();
