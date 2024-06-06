@@ -8,7 +8,7 @@ namespace PIM_III.Infraestrutura
     {
 
         //SALVAR DADOS DE CADASTROS NO DB__________________________________________________________________________________________________
-        public bool Cadastro_Cliente_DB(Usuario dados)
+        public void Cadastro_Cliente_DB(Usuario dados)
         {
 
             using var conn = new DBConnection();
@@ -18,7 +18,7 @@ namespace PIM_III.Infraestrutura
 
             var result = conn.Connection.Execute(sql: query, param: dados);
 
-            return result == 1;
+ 
         }
 
         public void Cadastro_Produtor_DB(Usuario dados)

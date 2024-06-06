@@ -4,9 +4,9 @@ using PIM_III.Gerenciamento_Cadastros;
 using PIM_III.Gerenciamento_Login;
 using PIM_III.Infraestrutura;
 
-DataRepository data_base = new DataRepository();//SALVAR DADOS NO BANCO
 
-
+//SALVAR DADOS NO BANCO
+DataRepository data_base = new DataRepository();
 //GERENCIAMENTO DE CADASTROS
 Produtor usuario_produtor = new Produtor();
 Cliente usuario_cliente = new Cliente();
@@ -16,7 +16,7 @@ Login_Produtor login_produtor = new Login_Produtor();
 
 
 
-
+//OPÇÕES INICIAIS____________________________________________________________________________________________________________________________________________________________________
 int op;
 
     Console.WriteLine("Bem vindo ao App MercadoRaiz!!\n\n 1)Login\n2)Cadastrar-se\n\nDigite o numero referente a opção desejada: ");
@@ -56,7 +56,7 @@ if (op == 1)
 
 
 //OPÇÃO CADASTRO____________________________________________________________________________________________________________________________________________________________________
-    else if (op == 2)
+else if (op == 2)
     {
 
         while (true)
