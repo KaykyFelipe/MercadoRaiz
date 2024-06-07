@@ -20,7 +20,7 @@ namespace PIM_III.Menus
         //GERENCIAMENTO DE LOGIN
         Login_Cliente login_cliente = new Login_Cliente();
         Login_Produtor login_produtor = new Login_Produtor();
-        
+
 
 
         public void Menu_lobby()
@@ -36,31 +36,34 @@ namespace PIM_III.Menus
             //OPÇÃOLOGIN________________________________________________________________________________________________________________________________________________________________________
             if (op == 1)
             {
-                while (true)
+
+                bool continuar = true;
+                while (continuar)
                 {
                     Console.WriteLine("1)Login Produtor\n2)Login Cliente\n\nDigite o numero referente a opção deseja:");
                     op = int.Parse(Console.ReadLine());
 
-                    if (op == 1)
+                    switch (op)
                     {
-                        login_produtor.LoginProdutor();
+                        case 1:
+                            login_produtor.LoginProdutor();
 
-                        bool retorno = data_base.Login_Produtor_DB(login_produtor);
-                        login_produtor.Validation_LoginProdutor(retorno);
-                        break;
+                            bool retorno_prod = data_base.Login_Produtor_DB(login_produtor);
+                            login_produtor.Validation_LoginProdutor(retorno_prod);
+                            break;
 
+                        case 2:
+
+                            login_cliente.LoginCliente();
+
+                            bool retorno_cl = data_base.Login_Cliente_DB(login_cliente);
+                            login_cliente.Validation_LoginCliente(retorno_cl);
+                            break;
+
+                        default:
+                            Console.WriteLine("\n\nDigite um numero valido\n\n"); continue;
                     }
-                    else if (op == 2)
-                    {
-
-                        login_cliente.LoginCliente();
-                        bool retorno = data_base.Login_Cliente_DB(login_cliente);
-                        login_cliente.Validation_LoginCliente(retorno);
-                        break;
-
-                    }
-                    else Console.WriteLine("\n\nDigite um numero valido\n\n");
-
+                    continuar = false;
                 }
 
             }
@@ -74,39 +77,38 @@ namespace PIM_III.Menus
             else if (op == 2)
             {
 
-                while (true)
+                bool continuar = true;
+                while (continuar)
                 {
-                    Console.WriteLine("1)Produtor\n2)Cliente\n\nDigite o numero referente a opção deseja:");
+                    Console.WriteLine("1)Cadastrar-se como Produtor\n2)Cadastrar-se como Cliente\n\nDigite o numero referente a opção deseja:");
                     op = int.Parse(Console.ReadLine());
 
-                    if (op == 1)
+                    switch (op)
                     {
-                        usuario_produtor.Cadastro_Produtor();
+                        case 1:
+                            usuario_produtor.Cadastro_Produtor();
 
-                        data_base.Cadastro_Produtor_DB(usuario_produtor);
-                        data_base.Cadastro_Propriedade_DB(usuario_produtor);
-                        Menu_lobby();
+                            data_base.Cadastro_Produtor_DB(usuario_produtor);
+                            data_base.Cadastro_Propriedade_DB(usuario_produtor);
+                            Menu_lobby();
 
+                            break;
 
-                        break;
+                        case 2:
 
+                            usuario_cliente.Cadastro_Cliente();
+
+                            data_base.Cadastro_Cliente_DB(usuario_cliente);
+                            Menu_lobby();
+
+                            break;
+                        default: Console.WriteLine("\n\nDigite um numero valido\n\n"); continue;
                     }
-                    else if (op == 2)
-                    {
-
-                        usuario_cliente.Cadastro_Cliente();
-
-                        data_base.Cadastro_Cliente_DB(usuario_cliente);
-                        Menu_lobby();
-
-                        break;
-                    }
-                    else Console.WriteLine("\n\nDigite um numero valido\n\n");
+                    continuar = false;
 
                 }
 
             }
-
         }
     }
 }

@@ -42,9 +42,9 @@ namespace PIM_III.Interfaces
             public void Controle_Estoque()
             {
 
-            bool continuar = true;
-            Console.WriteLine("1)Relatorio de Estoque\n2)Adicionar Estoque\n\nDigite o numero referente a opção deseja:");
             
+            Console.WriteLine("1)Relatorio de Estoque\n2)Adicionar Estoque\n\nDigite o numero referente a opção deseja:");
+            bool continuar = true;
             while (continuar)
             {
                 op = int.Parse(Console.ReadLine());
