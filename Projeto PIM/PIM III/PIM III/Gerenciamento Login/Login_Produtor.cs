@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_III.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace PIM_III.Gerenciamento_Login
 {
-    internal class Login_Produtor: Usuario
+    public class Login_Produtor: Usuario
     {
+        
 
         public void LoginProdutor()
         {
@@ -19,7 +21,7 @@ namespace PIM_III.Gerenciamento_Login
             Console.WriteLine("Digite a Senha");
             senha = Console.ReadLine();
 
-
+            
 
         }
         public void Validation_LoginProdutor(bool retorno)
@@ -27,9 +29,11 @@ namespace PIM_III.Gerenciamento_Login
 
             if (retorno == true)
             {
+                Interface_Produtor Interface_Produtor = new Interface_Produtor(email);
 
                 Console.WriteLine("Login Efetuado!!");
 
+                Interface_Produtor.menu_produtor();
                 
             }
             else Console.WriteLine("Login Invalido!!");

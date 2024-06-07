@@ -1,6 +1,7 @@
 ﻿using PIM_III.Gerenciamento_Cadastros;
 using PIM_III.Gerenciamento_Login;
 using PIM_III.Infraestrutura;
+using PIM_III.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace PIM_III.Menus
         //GERENCIAMENTO DE LOGIN
         Login_Cliente login_cliente = new Login_Cliente();
         Login_Produtor login_produtor = new Login_Produtor();
-
+        
 
 
         public void Menu_lobby()
@@ -43,6 +44,7 @@ namespace PIM_III.Menus
                     if (op == 1)
                     {
                         login_produtor.LoginProdutor();
+
                         bool retorno = data_base.Login_Produtor_DB(login_produtor);
                         login_produtor.Validation_LoginProdutor(retorno);
                         break;
