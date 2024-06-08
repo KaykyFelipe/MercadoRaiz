@@ -106,7 +106,18 @@ namespace PIM_III.Infraestrutura
 
             return result_DB_Estoque;
         }
+        public string PRODUTO { get; set; }
+        public int ID_PRODUTO { get; set; }
+        public List<DataRepository> Select_Produtos_Agricolas()
+        {
+            using var conn = new DBConnection();
 
+            string query = @"select id as ID_PRODUTO, nome as PRODUTO from prodagricola;";
+
+            var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query, param: new {}).ToList();
+
+            return result_DB_Plantio;
+        }
 
         public void Cadastro_Plantio(string email, int id_produto, int plantio)
         {
@@ -114,13 +125,47 @@ namespace PIM_III.Infraestrutura
             using var conn = new DBConnection();
 
             string query = @"INSERT INTO plantio (data_plantio, id_propriedade, id_prodagricola, area) values 
-                   (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE '@email' = p.email_proprietario),
+                   (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE @email = p.email_proprietario),
                    @alimento,
                    @area_plantio);";
 
             var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = id_produto, area_plantio = plantio });
 
 
+
+        }
+
+        public DateTime Data_Plantio { get; set; }
+        public string Nome_Produto { get; set; }
+        public int Area_Plantada { get; set; }
+        public int IDPropriedade { get; set; }
+        public int ID_Plantio { get; set; }
+
+        public List<DataRepository>Select_Plantio_DB(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"select pl.id as ID_Plantio, pl.data_plantio as Data_Plantio, prd.nome as Nome_Produto, pl.area as Area_Plantada, p.id as IDPropriedade
+                                from propriedade p 
+                                inner join plantio pl on pl.id_propriedade = p.id
+                                inner join prodagricola prd on prd.id = pl.id_prodagricola
+                                where p.id = (select p.id from propriedade p where email_proprietario = @email);";
+
+            var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email }).ToList();
+
+            return result_DB_Plantio;
+        }
+
+        public void Cadastro_Colheita(int quant_colhida,float valor_produto,int id_plantio)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO colheita_estoque 
+                            (data_colheita, quantidade, preco_unitario, id_plantio) VALUES
+                            (CURRENT_TIMESTAMP ,@quant_colhida ,@valor_produto , @id_plantio);";
+
+            var result = conn.Connection.Execute(sql: query, param: new {  quant_colhida= quant_colhida, valor_produto = valor_produto,id_plantio = id_plantio});
 
 
 
