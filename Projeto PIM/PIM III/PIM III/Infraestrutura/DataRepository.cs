@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using PIM_III.Interfaces;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 
 namespace PIM_III.Infraestrutura
@@ -87,7 +88,8 @@ namespace PIM_III.Infraestrutura
         public int Quantidade { get; set; }
         public decimal PrecoUnitario { get; set; }
 
-        public List<DataRepository> Controle_Estoque_DB (string email)
+
+        public List<DataRepository> Controle_Estoque_DB(string email)
         {
             using var conn = new DBConnection();
 
@@ -103,6 +105,25 @@ namespace PIM_III.Infraestrutura
             var result_DB_Estoque = conn.Connection.Query<DataRepository>(sql: query, param: new { email = email }).ToList();
 
             return result_DB_Estoque;
+        }
+
+
+        public void Cadastro_Plantio(string email, int id_produto, int plantio)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO plantio (data_plantio, id_propriedade, id_prodagricola, area) values 
+                   (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE '@email' = p.email_proprietario),
+                   @alimento,
+                   @area_plantio);";
+
+            var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = id_produto, area_plantio = plantio });
+
+
+
+
+
         }
 
     }
