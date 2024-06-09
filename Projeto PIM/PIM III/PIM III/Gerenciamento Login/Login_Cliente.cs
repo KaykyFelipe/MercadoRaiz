@@ -18,6 +18,7 @@ namespace PIM_III.Gerenciamento_Login
                 Console.WriteLine("Digite a Senha");
                 senha = Console.ReadLine();
 
+
            
 
         }
@@ -34,8 +35,9 @@ namespace PIM_III.Gerenciamento_Login
                 else
                 {
                     Console.WriteLine("Login Invalido!!");
+                    Console.ReadKey();
                 //**REFAZER CADASTRO(LOOP)
-                }
+            }
                     
             
         }

@@ -139,6 +139,8 @@ internal class Produtor : Usuario
 
         Console.WriteLine("\n\nCadastro Realizado!!!\n\n");
 
+        Console.ReadKey();
+
     }
 }
 

@@ -84,23 +84,29 @@ namespace PIM_III.Infraestrutura
         //SELECT CONTROLE DE ESTOQUE PRODUTOR__________________________________________________________________________________________________
 
 
-        public string Nome { get; set; }
-        public int Quantidade { get; set; }
-        public decimal PrecoUnitario { get; set; }
+        public string Produto { get; set; }
+        public int Qtd_Disponivel { get; set; }
+        public float Preco_Produto { get; set; }
+        public int ID_Propriedade { get; set; }
+        public string Cidade { get; set; }
+
+
 
 
         public List<DataRepository> Controle_Estoque_DB(string email)
         {
             using var conn = new DBConnection();
 
-            string query = @"select prod.nome as Nome,
-                     ce.quantidade as Quantidade,
-                     ce.preco_unitario as PrecoUnitario
-                     from produtor p, prodagricola prod, 
-                     propriedade pro inner join plantio pl on pl.id_propriedade = pro.id 
-                     inner join colheita_estoque ce on ce.id_plantio  = pl.id
-                     where prod.id = pl.id_prodagricola and
-                     p.email = @email;";
+            string query = @"select prod.nome as Nome_Produto,
+                            ce.quantidade as Qtd_Disponivel,
+                            ce.preco_unitario as Preco_Produto ,
+                            pro.id as ID_Propriedade,
+                            pro.cidade as Cidade
+                            from prodagricola prod, 
+                            propriedade pro inner join plantio pl on pl.id_propriedade = pro.id
+                            inner join colheita_estoque ce on ce.id_plantio  = pl.id
+                            where pro.email_proprietario = @email 
+                            and prod.id = pl.id_prodagricola;";
 
             var result_DB_Estoque = conn.Connection.Query<DataRepository>(sql: query, param: new { email = email }).ToList();
 

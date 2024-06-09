@@ -51,6 +51,8 @@ namespace PIM_III.Gerenciamento_Cadastros
             }
 
             Console.WriteLine("Cadastro realizado com sucesso!");
+
+            Console.ReadKey();
         }
     }
 }

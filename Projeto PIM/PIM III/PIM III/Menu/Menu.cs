@@ -28,8 +28,8 @@ namespace PIM_III.Menus
 
             int op;
 
-            Console.WriteLine("Bem vindo ao App MercadoRaiz!!\n\n 1)Login\n2)Cadastrar-se\n\nDigite o numero referente a opção desejada: ");
-            op = int.Parse(Console.ReadLine());
+            Console.WriteLine("Bem vindo ao App MercadoRaiz!!\n\n1)Login\n2)Cadastrar-se\n\nDigite o numero referente a opção desejada: ");
+            op = int.Parse(Console.ReadLine()); Console.Clear();
 
 
 
@@ -40,8 +40,8 @@ namespace PIM_III.Menus
                 bool continuar = true;
                 while (continuar)
                 {
-                    Console.WriteLine("1)Login Produtor\n2)Login Cliente\n\nDigite o numero referente a opção deseja:");
-                    op = int.Parse(Console.ReadLine());
+                    Console.WriteLine("1)Login Produtor\n2)Login Cliente\n3)Voltar\n\nDigite o numero referente a opção deseja:");
+                    op = int.Parse(Console.ReadLine()); Console.Clear();
 
                     switch (op)
                     {
@@ -49,7 +49,9 @@ namespace PIM_III.Menus
                             login_produtor.LoginProdutor();
 
                             bool retorno_prod = data_base.Login_Produtor_DB(login_produtor);
-                            login_produtor.Validation_LoginProdutor(retorno_prod);
+                            login_produtor.Validation_LoginProdutor(retorno_prod); Console.Clear();
+                            Menu_lobby();
+                            
                             break;
 
                         case 2:
@@ -57,9 +59,10 @@ namespace PIM_III.Menus
                             login_cliente.LoginCliente();
 
                             bool retorno_cl = data_base.Login_Cliente_DB(login_cliente);
-                            login_cliente.Validation_LoginCliente(retorno_cl);
+                            login_cliente.Validation_LoginCliente(retorno_cl); Console.Clear();
+                            Menu_lobby();
                             break;
-
+                        case 3: Menu_lobby(); Console.Clear(); break;
                         default:
                             Console.WriteLine("\n\nDigite um numero valido\n\n"); continue;
                     }
@@ -80,8 +83,8 @@ namespace PIM_III.Menus
                 bool continuar = true;
                 while (continuar)
                 {
-                    Console.WriteLine("1)Cadastrar-se como Produtor\n2)Cadastrar-se como Cliente\n\nDigite o numero referente a opção deseja:");
-                    op = int.Parse(Console.ReadLine());
+                    Console.WriteLine("1)Cadastrar-se como Produtor\n2)Cadastrar-se como Cliente\n3)Voltar\n\nDigite o numero referente a opção deseja:");
+                    op = int.Parse(Console.ReadLine()); Console.Clear();
 
                     switch (op)
                     {
@@ -90,7 +93,7 @@ namespace PIM_III.Menus
 
                             data_base.Cadastro_Produtor_DB(usuario_produtor);
                             data_base.Cadastro_Propriedade_DB(usuario_produtor);
-                            Menu_lobby();
+                            Console.Clear(); Menu_lobby(); 
 
                             break;
 
@@ -99,9 +102,10 @@ namespace PIM_III.Menus
                             usuario_cliente.Cadastro_Cliente();
 
                             data_base.Cadastro_Cliente_DB(usuario_cliente);
-                            Menu_lobby();
+                            Console.Clear(); Menu_lobby(); 
 
                             break;
+                        case 3: Console.Clear(); Menu_lobby();  break;
                         default: Console.WriteLine("\n\nDigite um numero valido\n\n"); continue;
                     }
                     continuar = false;

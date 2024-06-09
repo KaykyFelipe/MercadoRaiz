@@ -32,11 +32,13 @@ namespace PIM_III.Gerenciamento_Login
                 Interface_Produtor Interface_Produtor = new Interface_Produtor(email);
 
                 Console.WriteLine("Login Efetuado!!");
-
+                Console.ReadKey();
+                Console.Clear();
                 Interface_Produtor.menu_produtor();
                 
             }
             else Console.WriteLine("Login Invalido!!");
+            Console.ReadKey();
             //**REFAZER CADASTRO (LOOP)
         }
     }
