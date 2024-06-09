@@ -79,7 +79,7 @@ namespace PIM_III.Interfaces
 
                 foreach (var item in estoque)
                 {
-                    Console.WriteLine($"Nome: {item.Produto} | Quantidade: {item.Qtd_Disponivel} | Preço Unitário: {item.Preco_Produto} | ID Propriedade:{item.ID_Propriedade} | Cidade: {item.Cidade}");
+                    Console.WriteLine($"Nome: {item.PRODUTO} | Quantidade: {item.Qtd_Disponivel} | Preço Unitário: {item.Preco_Produto} | ID Propriedade:{item.ID_Propriedade} | Cidade: {item.Cidade}");
                 }
                 Console.ReadKey();
                 Console.Clear();

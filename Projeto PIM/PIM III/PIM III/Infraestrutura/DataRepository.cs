@@ -84,7 +84,7 @@ namespace PIM_III.Infraestrutura
         //SELECT CONTROLE DE ESTOQUE PRODUTOR__________________________________________________________________________________________________
 
 
-        public string Produto { get; set; }
+        
         public int Qtd_Disponivel { get; set; }
         public float Preco_Produto { get; set; }
         public int ID_Propriedade { get; set; }
@@ -97,7 +97,7 @@ namespace PIM_III.Infraestrutura
         {
             using var conn = new DBConnection();
 
-            string query = @"select prod.nome as Nome_Produto,
+            string query = @"select prod.nome as PRODUTO,
                             ce.quantidade as Qtd_Disponivel,
                             ce.preco_unitario as Preco_Produto ,
                             pro.id as ID_Propriedade,
@@ -114,6 +114,7 @@ namespace PIM_III.Infraestrutura
         }
         public string PRODUTO { get; set; }
         public int ID_PRODUTO { get; set; }
+
         public List<DataRepository> Select_Produtos_Agricolas()
         {
             using var conn = new DBConnection();
@@ -125,7 +126,7 @@ namespace PIM_III.Infraestrutura
             return result_DB_Plantio;
         }
 
-        public void Cadastro_Plantio(string email, int id_produto, int plantio)
+        public void Cadastro_Plantio(string email, int alimento, int area_plantio)
         {
 
             using var conn = new DBConnection();
@@ -135,7 +136,7 @@ namespace PIM_III.Infraestrutura
                    @alimento,
                    @area_plantio);";
 
-            var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = id_produto, area_plantio = plantio });
+            var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
 
 
 
