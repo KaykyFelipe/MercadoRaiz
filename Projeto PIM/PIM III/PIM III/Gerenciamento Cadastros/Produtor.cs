@@ -38,6 +38,7 @@ internal class Produtor : Usuario
             }
             Console.Write("\nO email não pode estar vazio! Por favor, digite novamente.");
         }
+        email_proprietario = email;
 
         while (true)
         {

@@ -79,7 +79,7 @@ namespace PIM_III.Interfaces
 
                 foreach (var item in estoque)
                 {
-                    Console.WriteLine($"Nome: {item.PRODUTO} | Quantidade: {item.Qtd_Disponivel} | Preço Unitário: {item.Preco_Produto} | ID Propriedade:{item.ID_Propriedade} | Cidade: {item.Cidade}");
+                    Console.WriteLine($"Nome: {item.Nome_Produto} | Quantidade: {item.Qtd_Disponivel} | Preço Unitário: {item.Preco_Produto} | ID Propriedade:{item.ID_Propriedade} | Cidade: {item.Cidade}");
                 }
                 Console.ReadKey();
                 Console.Clear();
@@ -124,7 +124,7 @@ namespace PIM_III.Interfaces
 
                     foreach (var item2 in DB)
                     {
-                        Console.WriteLine($"ID PLANTIO: {item2.ID_Plantio} | Data Plantio: {item2.Data_Plantio} | Nome Produto:{item2.Nome_Produto} | Area Plantada: {item2.Area_Plantada} | ID Propriedade: {item2.IDPropriedade}");
+                        Console.WriteLine($"ID PLANTIO: {item2.ID_Plantio} | Data Plantio: {item2.Data_Plantio} | Nome Produto:{item2.Nome_Produtos} | Area Plantada: {item2.Area_Plantada} | ID Propriedade: {item2.IDPropriedade}");
 
                     }
 

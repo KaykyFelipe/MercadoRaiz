@@ -84,7 +84,7 @@ namespace PIM_III.Infraestrutura
         //SELECT CONTROLE DE ESTOQUE PRODUTOR__________________________________________________________________________________________________
 
 
-        
+        public string Nome_Produto { get; set; }
         public int Qtd_Disponivel { get; set; }
         public float Preco_Produto { get; set; }
         public int ID_Propriedade { get; set; }
@@ -97,7 +97,7 @@ namespace PIM_III.Infraestrutura
         {
             using var conn = new DBConnection();
 
-            string query = @"select prod.nome as PRODUTO,
+            string query = @"select prod.nome as Nome_Produto,
                             ce.quantidade as Qtd_Disponivel,
                             ce.preco_unitario as Preco_Produto ,
                             pro.id as ID_Propriedade,
@@ -142,17 +142,18 @@ namespace PIM_III.Infraestrutura
 
         }
 
+        public int ID_Plantio { get; set; }
         public DateTime Data_Plantio { get; set; }
-        public string Nome_Produto { get; set; }
+        public string Nome_Produtos { get; set; }
         public int Area_Plantada { get; set; }
         public int IDPropriedade { get; set; }
-        public int ID_Plantio { get; set; }
+        
 
         public List<DataRepository>Select_Plantio_DB(string email)
         {
             using var conn = new DBConnection();
 
-            string query2 = @"select pl.id as ID_Plantio, pl.data_plantio as Data_Plantio, prd.nome as Nome_Produto, pl.area as Area_Plantada, p.id as IDPropriedade
+            string query2 = @"select pl.id as ID_Plantio, pl.data_plantio as Data_Plantio, prd.nome as Nome_Produtos, pl.area as Area_Plantada, p.id as IDPropriedade
                                 from propriedade p 
                                 inner join plantio pl on pl.id_propriedade = p.id
                                 inner join prodagricola prd on prd.id = pl.id_prodagricola

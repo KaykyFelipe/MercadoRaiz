@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|d:\\git hub repositorios\\pim-iii\\projeto pim\\pim iii\\pim iii\\gerenciamento cadastros\\produtor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|solutionrelative:pim iii\\gerenciamento cadastros\\produtor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|d:\\git hub repositorios\\pim-iii\\projeto pim\\pim iii\\pim iii\\interfaces\\interface_produtor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|solutionrelative:pim iii\\interfaces\\interface_produtor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|d:\\git hub repositorios\\pim-iii\\projeto pim\\pim iii\\pim iii\\infraestrutura\\datarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|solutionrelative:pim iii\\infraestrutura\\datarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|d:\\git hub repositorios\\pim-iii\\projeto pim\\pim iii\\pim iii\\gerenciamento cadastros\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|solutionrelative:pim iii\\gerenciamento cadastros\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|d:\\git hub repositorios\\pim-iii\\projeto pim\\pim iii\\pim iii\\gerenciamento cadastros\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17AE256-9680-47A8-ACDB-B22FDEDC9064}|PIM III\\PIM III.csproj|solutionrelative:pim iii\\gerenciamento cadastros\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Interface_Produtor.cs",
-              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Interfaces\\Interface_Produtor.cs",
-              "RelativeDocumentMoniker": "PIM III\\Interfaces\\Interface_Produtor.cs",
-              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Interfaces\\Interface_Produtor.cs",
-              "RelativeToolTip": "PIM III\\Interfaces\\Interface_Produtor.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAswGwAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Cliente.cs",
+              "RelativeDocumentMoniker": "PIM III\\Gerenciamento Cadastros\\Cliente.cs",
+              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Cliente.cs",
+              "RelativeToolTip": "PIM III\\Gerenciamento Cadastros\\Cliente.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T22:15:29.644Z",
+              "WhenOpened": "2024-06-09T23:40:20.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Usuario.cs",
+              "RelativeDocumentMoniker": "PIM III\\Gerenciamento Cadastros\\Usuario.cs",
+              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Usuario.cs",
+              "RelativeToolTip": "PIM III\\Gerenciamento Cadastros\\Usuario.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAABEAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T23:39:04.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Produtor.cs",
+              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Produtor.cs",
+              "RelativeDocumentMoniker": "PIM III\\Gerenciamento Cadastros\\Produtor.cs",
+              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Gerenciamento Cadastros\\Produtor.cs",
+              "RelativeToolTip": "PIM III\\Gerenciamento Cadastros\\Produtor.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAgwAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T23:38:44.319Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DataRepository.cs",
-              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Infraestrutura\\DataRepository.cs",
-              "RelativeDocumentMoniker": "PIM III\\Infraestrutura\\DataRepository.cs",
-              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Infraestrutura\\DataRepository.cs",
-              "RelativeToolTip": "PIM III\\Infraestrutura\\DataRepository.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAuwI4AAAAJAAAA",
+              "Title": "Interface_Produtor.cs",
+              "DocumentMoniker": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Interfaces\\Interface_Produtor.cs",
+              "RelativeDocumentMoniker": "PIM III\\Interfaces\\Interface_Produtor.cs",
+              "ToolTip": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\Interfaces\\Interface_Produtor.cs",
+              "RelativeToolTip": "PIM III\\Interfaces\\Interface_Produtor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T00:20:29.535Z",
+              "WhenOpened": "2024-06-09T22:15:29.644Z",
               "EditorCaption": ""
             }
           ]
