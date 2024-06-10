@@ -148,9 +148,18 @@ internal class Produtor : Usuario
             continuar = false;
         }
 
+        float areadisponivel;
 
-        Console.Write("\nDigite o tamanho da área de plantio: ");
-        tamanho = float.Parse(Console.ReadLine());
+        while (true)
+        {
+            Console.Write("\nDigite numericamente tamanho da área de plantio: ");
+            if (float.TryParse(Console.ReadLine(), out areadisponivel))
+            {
+                tamanho = areadisponivel;
+                break;
+            }
+            Console.Write("\nArea Invalida! Apenas números são permitidos!");
+        }
 
         Console.WriteLine("\n\nCadastro Realizado!!!\n\n");
 
