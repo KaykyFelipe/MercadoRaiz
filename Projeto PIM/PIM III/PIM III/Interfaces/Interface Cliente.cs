@@ -40,9 +40,6 @@ namespace PIM_III.Interfaces
         }
 
 
-
-
-
         public void Comprar_Alimentos()
         {
             Console.WriteLine("ALIMENTOS DISPONIVEIS PARA COMPRA:\n\n");

@@ -154,16 +154,16 @@ namespace PIM_III.Infraestrutura
         {
             using var conn = new DBConnection();
 
-            string query2 = @"select pl.id as ID_Plantio,
-                           prod.nome as Nome_Produtos,
-                           ce.quantidade as Area_Plantada,
-                           pro.id as IDPropriedade,
-                           pl.status as Status_Plantio
-                           from prodagricola prod, 
-                           propriedade pro inner join plantio pl on pl.id_propriedade = pro.id
-                           inner join colheita_estoque ce on ce.id_plantio  = pl.id
-                           where pro.email_proprietario = @email 
-                           and prod.id = pl.id_prodagricola;";
+            string query2 = @"select pl.id as ID_Plantio, 
+                            pl.data_plantio as Data_Plantio,
+                            prd.nome as Nome_Produtos,
+                            pl.area as Area_Plantada,
+                            p.id as IDPropriedade,
+                            pl.status as Status_Plantio
+                    from propriedade p 
+                    inner join plantio pl on pl.id_propriedade = p.id
+                    inner join prodagricola prd on prd.id = pl.id_prodagricola
+                    where p.id = (select p.id from propriedade p where email_proprietario = @email);";
 
             var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email }).ToList();
 
