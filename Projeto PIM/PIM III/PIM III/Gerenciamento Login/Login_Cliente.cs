@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_III.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,12 @@ namespace PIM_III.Gerenciamento_Login
             
                 if (retorno == true)
                 {
-
-                    Console.WriteLine("Login Efetuado!!");
+                Interface_Cliente interface_Cliente = new Interface_Cliente();
+                Console.WriteLine("Login Efetuado!!");
+                Console.ReadKey();
+                Console.Clear();
+                interface_Cliente.Menu_Cliente();
+                 
                    //**ACESSO A INTERFACER
 
                 }

@@ -27,7 +27,7 @@ namespace PIM_III.Interfaces
         public void menu_produtor()
         {
 
-            Console.WriteLine("1)Controle de Estoque\n2)Dicas de Plantio\n3)Vender Alimentos\n4)Relatorio\n5)Mural de Vendas\n\nDigite o numero referente a opção deseja:");
+            Console.WriteLine("1)Controle de Estoque\n2)Dicas de Plantio\n3)Relatorio\n\nDigite o numero referente a opção deseja:");
             bool continuar = true;
             while (continuar)
             {
@@ -37,9 +37,9 @@ namespace PIM_III.Interfaces
                 {
                     case 1: Controle_Estoque();  break;
                     case 2: dicas();  break;
-                    case 3: Vender_Alimentos(); break;
-                    case 4: Relatorio(); break;
-                    case 5: Mural_de_Vendas(); break;
+                    case 3: Relatorio(); break;
+                   
+               
                     default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); Console.Clear(); continue;
 
                 }
@@ -111,7 +111,7 @@ namespace PIM_III.Interfaces
 
                     DataRepository.Cadastro_Plantio(email, alimento, area_plantio);
 
-
+                    Console.Clear() ;
                     menu_produtor();
                 }
             }
@@ -124,7 +124,7 @@ namespace PIM_III.Interfaces
 
                     foreach (var item2 in DB)
                     {
-                        Console.WriteLine($"ID PLANTIO: {item2.ID_Plantio} | Data Plantio: {item2.Data_Plantio} | Nome Produto:{item2.Nome_Produtos} | Area Plantada: {item2.Area_Plantada} | ID Propriedade: {item2.IDPropriedade}");
+                        Console.WriteLine($"ID PLANTIO: {item2.ID_Plantio}  Nome Produto:{item2.Nome_Produtos} | Area Plantada: {item2.Area_Plantada}  | ID Propriedade: {item2.IDPropriedade} | STATUS: {item2.Status_Plantio}");
 
                     }
 
@@ -151,22 +151,17 @@ namespace PIM_III.Interfaces
             Console.ReadKey();
             Console.Clear();
             menu_produtor();
-        }
-
-            public void Vender_Alimentos()
-            {
-
             }
+
+
+
+
             public void Relatorio()
             {
 
                 menu_produtor();
             }
-            public void Mural_de_Vendas()
-            {
-
-
-            }
+            
 
 
         }

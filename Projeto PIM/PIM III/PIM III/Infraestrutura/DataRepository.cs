@@ -10,7 +10,7 @@ namespace PIM_III.Infraestrutura
     {
 
 
-        //SALVAR DADOS DE CADASTROS NO DB__________________________________________________________________________________________________
+        //CRUD CADASTROS__________________________________________________________________________________________________
         public void Cadastro_Cliente_DB(Usuario dados)
         {
 
@@ -53,7 +53,7 @@ namespace PIM_III.Infraestrutura
 
         }
 
-        //SELECT PARA VALDIAÇÃO DE LOGIN__________________________________________________________________________________________________
+        //CRUD LOGIN__________________________________________________________________________________________________
         public bool Login_Cliente_DB(Usuario dados)
         {
             using var conn = new DBConnection();
@@ -81,7 +81,7 @@ namespace PIM_III.Infraestrutura
         }
 
 
-        //SELECT CONTROLE DE ESTOQUE PRODUTOR__________________________________________________________________________________________________
+        //CRUD CONTROLE DE ESTOQUE E RELATORIO (INTERFACE PRODUTOR)__________________________________________________________________________________________________
 
 
         public string Nome_Produto { get; set; }
@@ -121,7 +121,7 @@ namespace PIM_III.Infraestrutura
 
             string query = @"select id as ID_PRODUTO, nome as PRODUTO from prodagricola;";
 
-            var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query, param: new {}).ToList();
+            var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query, param: new { }).ToList();
 
             return result_DB_Plantio;
         }
@@ -141,30 +141,36 @@ namespace PIM_III.Infraestrutura
 
 
         }
-
         public int ID_Plantio { get; set; }
-        public DateTime Data_Plantio { get; set; }
         public string Nome_Produtos { get; set; }
         public int Area_Plantada { get; set; }
         public int IDPropriedade { get; set; }
+        public string Status_Plantio { get; set; }
         
+       
 
-        public List<DataRepository>Select_Plantio_DB(string email)
+
+        public List<DataRepository> Select_Plantio_DB(string email)
         {
             using var conn = new DBConnection();
 
-            string query2 = @"select pl.id as ID_Plantio, pl.data_plantio as Data_Plantio, prd.nome as Nome_Produtos, pl.area as Area_Plantada, p.id as IDPropriedade
-                                from propriedade p 
-                                inner join plantio pl on pl.id_propriedade = p.id
-                                inner join prodagricola prd on prd.id = pl.id_prodagricola
-                                where p.id = (select p.id from propriedade p where email_proprietario = @email);";
+            string query2 = @"select pl.id as ID_Plantio,
+                           prod.nome as Nome_Produtos,
+                           ce.quantidade as Area_Plantada,
+                           pro.id as IDPropriedade,
+                           pl.status as Status_Plantio
+                           from prodagricola prod, 
+                           propriedade pro inner join plantio pl on pl.id_propriedade = pro.id
+                           inner join colheita_estoque ce on ce.id_plantio  = pl.id
+                           where pro.email_proprietario = @email 
+                           and prod.id = pl.id_prodagricola;";
 
             var result_DB_Plantio = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email }).ToList();
 
             return result_DB_Plantio;
         }
 
-        public void Cadastro_Colheita(int quant_colhida,float valor_produto,int id_plantio)
+        public void Cadastro_Colheita(int quant_colhida, float valor_produto, int id_plantio)
         {
 
             using var conn = new DBConnection();
@@ -173,11 +179,38 @@ namespace PIM_III.Infraestrutura
                             (data_colheita, quantidade, preco_unitario, id_plantio) VALUES
                             (CURRENT_TIMESTAMP ,@quant_colhida ,@valor_produto , @id_plantio);";
 
-            var result = conn.Connection.Execute(sql: query, param: new {  quant_colhida= quant_colhida, valor_produto = valor_produto,id_plantio = id_plantio});
+            var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
+        }
 
+        //CRUD COMPRA E RELATORIO (INTERFACE CLIENTE)__________________________________________________________________________________________________
+
+        public int ID_Colheita { get; set; }
+        public DateTime Data { get; set; }
+        public string Produto_Nome { get; set; }
+        public int Estoque { get; set; }
+        public float Valor_Produto { get; set; }
+        public string Cidade_Venda { get; set; }
+
+
+        public List<DataRepository> Select_Produtos()
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"select ce.id_colheita as ID_Colheita,
+                            ce.data_colheita as Data,
+                            prd.nome Produto_Nome,
+                            ce.quantidade as Estoque,
+                            ce.preco_unitario as Valor_Produto,
+                            p.cidade as Cidade_Venda
+                            from plantio pl inner join prodagricola prd on prd.id = pl.id_prodagricola
+                            inner join propriedade p on p.id = pl.id_propriedade
+                            inner join colheita_estoque ce on ce.id_plantio = pl.id;";
+
+            var result_DB_Produtos = conn.Connection.Query<DataRepository>(sql: query2, param: new { }).ToList();
+
+            return result_DB_Produtos;
 
 
         }
-
     }
 }

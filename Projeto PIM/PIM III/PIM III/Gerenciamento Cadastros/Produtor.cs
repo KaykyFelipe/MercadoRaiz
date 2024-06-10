@@ -130,13 +130,10 @@ internal class Produtor : Usuario
         }
 
         Console.Write("\nDigite o tipo da sua plantação: ");
-        tipo = Console.ReadLine();
-
-        Console.Write("\nDigite o tamanho da sua residência: ");
-        tamanho = float.Parse(Console.ReadLine());
+        tipo = Console.ReadLine(); 
 
         Console.Write("\nDigite o tamanho da área de plantio: ");
-        area_plantada = float.Parse(Console.ReadLine());
+        tamanho = float.Parse(Console.ReadLine());
 
         Console.WriteLine("\n\nCadastro Realizado!!!\n\n");
 
