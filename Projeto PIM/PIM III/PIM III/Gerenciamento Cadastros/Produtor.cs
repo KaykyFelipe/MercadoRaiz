@@ -77,12 +77,13 @@ internal class Produtor : Usuario
             Console.Write("\nNome da rua inválido! Apenas letras são permitidas!");
         }
 
-        int numero;
+        int numero_casa;
         while (true)
         {
             Console.Write("\nDigite o número da sua casa: ");
-            if (int.TryParse(Console.ReadLine(), out numero))
+            if (int.TryParse(Console.ReadLine(), out numero_casa))
             {
+                numero = numero_casa;
                 break;
             }
             Console.Write("\nNúmero da residência inválido! Apenas números são permitidos!");
