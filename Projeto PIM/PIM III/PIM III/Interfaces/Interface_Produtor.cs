@@ -90,10 +90,6 @@ namespace PIM_III.Interfaces
             void Plantio()
             {
              
-
-                bool continuar = true;
-                while (continuar)
-                {
                     List<DataRepository> DB = DataRepository.Select_Produtos_Agricolas();
 
                     foreach (var item2 in DB)
@@ -104,7 +100,18 @@ namespace PIM_III.Interfaces
 
                     Console.WriteLine("Digite o ID referente ao produto que irá ser plantado");
                     alimento = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite a area de plantio do alimento selecionado");
+
+
+
+                    List<DataRepository> DTB = DataRepository.Select_Area_Plantada(email);
+
+                    foreach (var item2 in DTB)
+                    {
+                        Console.WriteLine($"\nArea Disponivel Para Plantio: {item2.Area_disponivel}\n");
+
+                    }
+
+                Console.WriteLine("Digite a area de plantio que será usada para o cultivo do alimento:");
                     area_plantio = int.Parse(Console.ReadLine());
 
 
@@ -113,7 +120,7 @@ namespace PIM_III.Interfaces
 
                     Console.Clear() ;
                     menu_produtor();
-                }
+               
             }
 
 

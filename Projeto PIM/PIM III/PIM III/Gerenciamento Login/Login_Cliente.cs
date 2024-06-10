@@ -28,7 +28,7 @@ namespace PIM_III.Gerenciamento_Login
             
                 if (retorno == true)
                 {
-                Interface_Cliente interface_Cliente = new Interface_Cliente();
+                Interface_Cliente interface_Cliente = new Interface_Cliente(email);
                 Console.WriteLine("Login Efetuado!!");
                 Console.ReadKey();
                 Console.Clear();

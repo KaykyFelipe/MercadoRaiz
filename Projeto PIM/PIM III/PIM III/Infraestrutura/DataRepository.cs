@@ -126,6 +126,18 @@ namespace PIM_III.Infraestrutura
             return result_DB_Plantio;
         }
 
+        public int Area_disponivel { get; set; }
+        public List<DataRepository> Select_Area_Plantada(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query = @"select p.tamanho - p.area_plantada as Area_disponivel from propriedade p where email_proprietario = @email;";
+
+            var result_DB_AreaPlant = conn.Connection.Query<DataRepository>(sql: query, param: new {email = email}).ToList();
+
+            return result_DB_AreaPlant;
+        }
+
         public void Cadastro_Plantio(string email, int alimento, int area_plantio)
         {
 
@@ -146,8 +158,8 @@ namespace PIM_III.Infraestrutura
         public int Area_Plantada { get; set; }
         public int IDPropriedade { get; set; }
         public string Status_Plantio { get; set; }
-        
-       
+
+
 
 
         public List<DataRepository> Select_Plantio_DB(string email)
@@ -209,8 +221,28 @@ namespace PIM_III.Infraestrutura
             var result_DB_Produtos = conn.Connection.Query<DataRepository>(sql: query2, param: new { }).ToList();
 
             return result_DB_Produtos;
+        }
 
+        public void Abertura_Pedido(string email)
+        {
 
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO pedido_venda (data, email_cliente) values 
+                            (CURRENT_TIMESTAMP, @email);";
+
+            var result = conn.Connection.Execute(sql: query, param: new { email = email });
+        }
+
+        public void Pedido_Compra(int id_produto, int quant_prod, string email)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO item_pedido (quantidade, id_estoque,id_pedido) values 
+                            (@quant_prod, @id_produto, (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1));;";
+
+            var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email= email });
         }
     }
 }
