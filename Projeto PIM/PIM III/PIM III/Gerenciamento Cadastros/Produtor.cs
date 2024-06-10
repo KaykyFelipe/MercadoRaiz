@@ -87,7 +87,7 @@ internal class Produtor : Usuario
             }
             Console.Write("\nNúmero da residência inválido! Apenas números são permitidos!");
         }
-        Console.WriteLine($"Número da residência: {numero}");
+        
 
         while (true)
         {
@@ -129,8 +129,24 @@ internal class Produtor : Usuario
             }
         }
 
-        Console.Write("\nDigite o tipo da sua plantação: ");
-        tipo = Console.ReadLine(); 
+        int op;
+        Console.Write("\nQual o seu tipo de plantação?\n1)HIDROPONIA  2)TRADICIONAL\n\nDigite o tipo da sua plantação: ");
+        bool continuar = true;
+        while (continuar)
+        {
+            op = int.Parse(Console.ReadLine());
+
+            switch (op)
+            {
+                case 1: tipo = "HIDROPONIA"; break;
+
+                case 2: tipo = "TRADICIONAL"; break;
+
+                default: Console.WriteLine("Tipo de plantação inválida! Digite o valor correto (1 ou 2)\n"); continue;
+            }
+            continuar = false;
+        }
+
 
         Console.Write("\nDigite o tamanho da área de plantio: ");
         tamanho = float.Parse(Console.ReadLine());
