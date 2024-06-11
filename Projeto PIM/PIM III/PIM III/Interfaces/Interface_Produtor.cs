@@ -85,7 +85,7 @@ namespace PIM_III.Interfaces
                 Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                 Console.ReadKey();
                 Console.Clear();
-                menu_produtor();
+                Controle_Estoque();
             }
 
 
@@ -123,8 +123,8 @@ namespace PIM_III.Interfaces
                     Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                     Console.ReadKey();
                     Console.Clear() ;
-                    menu_produtor();
-               
+                    Controle_Estoque();
+
             }
 
 
@@ -156,8 +156,7 @@ namespace PIM_III.Interfaces
                     Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                     Console.ReadKey();
                     Console.Clear();
-
-                    menu_produtor();
+                    Controle_Estoque();
             }
             
     }

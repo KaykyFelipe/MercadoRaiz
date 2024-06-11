@@ -50,9 +50,7 @@ namespace PIM_III.Gerenciamento_Cadastros
                 Console.WriteLine("A senha deve ter entre 5 e 10 dígitos.");
             }
 
-            
-
-            Console.ReadKey();
+           
         }
     }
 }

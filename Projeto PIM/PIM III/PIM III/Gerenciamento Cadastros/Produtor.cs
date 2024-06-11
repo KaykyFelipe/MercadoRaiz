@@ -148,34 +148,22 @@ internal class Produtor : Usuario
             continuar = false;
         }
 
-<<<<<<< HEAD
-        float areadisponivel;
 
-        while (true)
-        {
-            Console.Write("\nDigite numericamente tamanho da área de plantio: ");
-            if (float.TryParse(Console.ReadLine(), out areadisponivel))
-=======
+
         int areadisponivel;
         while (true)
         {
-            Console.Write("\nDigite tamanho da área de plantio (M²): ");
+            Console.Write("\nDigite tamanho da área de plantio em (M²): ");
             if (int.TryParse(Console.ReadLine(), out areadisponivel))
->>>>>>> 2d60011ab662afa5019fc677f44b86fa4efa03ce
+
             {
                 tamanho = areadisponivel;
                 break;
             }
-<<<<<<< HEAD
-            Console.Write("\nArea Invalida! Apenas números são permitidos!");
-=======
-            Console.Write("\nNúmero inválido! Apenas números são permitidos!");
->>>>>>> 2d60011ab662afa5019fc677f44b86fa4efa03ce
+
+            Console.Write("\nArea inválido! Apenas números são permitidos!");
+
         }
-
-        Console.WriteLine("\n\nCadastro Realizado!!!\n\n");
-
-        Console.ReadKey();
 
     }
 }

@@ -17,7 +17,7 @@ namespace PIM_III.Interfaces
         public void Menu_Cliente()
         {
             int op;
-            Console.WriteLine("1)Estoque Alimentos\n2)Relatorio de Compras\n\nDigite o numero referente a opção deseja:");
+            Console.WriteLine("1)Estoque Alimentos\n2)Relatorio de Compra\n\nDigite o numero referente a opção deseja:");
             bool continuar = true;
             while (continuar)
             {
@@ -26,7 +26,7 @@ namespace PIM_III.Interfaces
                 switch (op)
                 {
                     case 1: Estoque_Alimentos(); break;
-                    case 2: Relatorio_Compras(); break;
+                    case 2: Relatorio_Compra(); break;
 
                     default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); Console.Clear(); continue;
 
@@ -55,17 +55,21 @@ namespace PIM_III.Interfaces
             bool continuar = true;
             while (continuar)
             {
-                op = int.Parse(Console.ReadLine());
-                
-                switch (op)
+                try
                 {
-                    case 1: Comprar(); break;
-                    case 2: Menu_Cliente(); Console.Clear(); break;
+                        op = int.Parse(Console.ReadLine());
 
-                    default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); continue;
+                    switch (op)
+                    {
+                        case 1: Comprar(); break;
+                        case 2: Menu_Cliente(); Console.Clear(); break;
 
+                        default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); continue;
+
+                    }
+                    continuar = false;
                 }
-                continuar = false;
+                catch (FormatException) { Console.WriteLine("Erro!!Tente Novamente"); }
 
             }
 
@@ -96,18 +100,18 @@ namespace PIM_III.Interfaces
                 }
 
                 DataRepository.Pedido_Compra(id_produto, quant_prod, email);
-
-                Console.Write("\nPedido Realizado!!");
-
-                Console.Clear();
+               
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                 Console.ReadKey();
+                Console.Clear();
+                
 
                 Menu_Cliente();
             }
 
             
         }
-        public void Relatorio_Compras()
+        public void Relatorio_Compra()
         {
 
             List<DataRepository> DB = DataRepository.Select_Relatorio_Cliente(email);

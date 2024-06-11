@@ -24,7 +24,7 @@ namespace PIM_III.Infraestrutura
             {
                 var result = conn.Connection.Execute(sql: query, param: dados);
 
-                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\nCadastro realizado com sucesso!");
                 Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                 Console.ReadKey();
 
@@ -52,7 +52,7 @@ namespace PIM_III.Infraestrutura
 
                 var result = conn.Connection.Execute(sql: query, param: dados);
 
-                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\nCadastro realizado com sucesso!");
                 Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                 Console.ReadKey();
 
@@ -170,15 +170,15 @@ namespace PIM_III.Infraestrutura
         
         public void Cadastro_Plantio(string email, int alimento, int area_plantio)
         {
-
-            using var conn = new DBConnection();
+            try
+            {
+                using var conn = new DBConnection();
 
             string query = @"INSERT INTO plantio (data_plantio, id_propriedade, id_prodagricola, area) values 
                    (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE @email = p.email_proprietario),
                    @alimento,
                    @area_plantio);"; 
-            try
-            {
+            
                 var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
 
             }
@@ -221,15 +221,15 @@ namespace PIM_III.Infraestrutura
 
         public void Cadastro_Colheita(int quant_colhida, float valor_produto, int id_plantio)
         {
-
-            using var conn = new DBConnection();
+            try
+            {
+                using var conn = new DBConnection();
 
             string query = @"INSERT INTO colheita_estoque 
                             (data_colheita, quantidade, preco_unitario, id_plantio) VALUES
                             (CURRENT_TIMESTAMP ,@quant_colhida ,@valor_produto , @id_plantio);";
 
-            try
-            {
+            
                 var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
             }
             catch (Npgsql.PostgresException) {
@@ -314,14 +314,15 @@ namespace PIM_III.Infraestrutura
 
         public void Pedido_Compra(int id_produto, int quant_prod, string email)
         {
+            try
+            {
 
-            using var conn = new DBConnection();
+                using var conn = new DBConnection();
 
             string query = @"INSERT INTO item_pedido (quantidade, id_estoque,id_pedido) values 
                             (@quant_prod, @id_produto, (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1));;";
 
-            try
-            {
+            
                 var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email = email });
             }
             catch (Npgsql.PostgresException)
@@ -351,9 +352,9 @@ namespace PIM_III.Infraestrutura
                                 where ip.id_pedido = (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1)
                                 order by ip.id_pedido;";
 
-            var result_DB_RelatorioProd = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
+            var result_DB_Cliente = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
 
-            return result_DB_RelatorioProd;
+            return result_DB_Cliente;
         }
 
     }

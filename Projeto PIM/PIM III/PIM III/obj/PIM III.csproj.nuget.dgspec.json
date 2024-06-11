@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj": {}
+    "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj": {}
   },
   "projects": {
-    "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj": {
+    "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj",
+        "projectUniqueName": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj",
         "projectName": "PIM III",
-        "projectPath": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "D:\\Git Hub Repositorios\\PIM-III\\Projeto PIM\\PIM III\\PIM III\\obj\\",
+        "projectPath": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\PIM III.csproj",
+        "packagesPath": "C:\\Users\\MW Contabilidade\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Projeto PIM\\PIM\\Projeto PIM\\PIM III\\PIM III\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MW Contabilidade\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
