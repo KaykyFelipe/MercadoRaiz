@@ -254,7 +254,7 @@ namespace PIM_III.Infraestrutura
         {
             using var conn = new DBConnection();
 
-            string query2 = @"SELECT hp.dia||'/'||hp.mes||'/'||hp.ano as Data_Compra,
+            string query2 = @"SELECT hp.dia||'/'||hp.mes||'/'||hp.ano as Data__Compra,
                                 hp.nome_cliente as Nome_Cliente,
                                 cl.celular as Celular_Cliente,
                                 p.produto as Name_Produto,

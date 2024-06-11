@@ -149,7 +149,9 @@ namespace PIM_III.Interfaces
                         Console.WriteLine($"ID PLANTIO: {item2.ID_Plantio}  Nome Produto:{item2.Nome_Produtos} | Area Plantada: {item2.Area_Plantada}  | ID Propriedade: {item2.IDPropriedade} | STATUS: {item2.Status_Plantio}");
 
                     }
+                    int opt;
 
+                    
 
                     Console.WriteLine("\nDigite o ID do plantio que será colhido");
                     id_plantio = int.Parse(Console.ReadLine());

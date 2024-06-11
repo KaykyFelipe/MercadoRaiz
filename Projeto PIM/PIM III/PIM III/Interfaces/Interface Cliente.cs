@@ -16,23 +16,34 @@ namespace PIM_III.Interfaces
 
         public void Menu_Cliente()
         {
-            int op;
-            Console.WriteLine("1)Estoque Alimentos\n2)Relatorio de Compra\n\nDigite o numero referente a opção deseja:");
-            bool continuar = true;
-            while (continuar)
+            try
             {
-                op = int.Parse(Console.ReadLine());
-                Console.Clear();
-                switch (op)
+                int op;
+                Console.WriteLine("1)Estoque Alimentos\n2)Relatorio de Compra\n\nDigite o numero referente a opção deseja:");
+                bool continuar = true;
+                while (continuar)
                 {
-                    case 1: Estoque_Alimentos(); break;
-                    case 2: Relatorio_Compra(); break;
+                    op = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    switch (op)
+                    {
+                        case 1: Estoque_Alimentos(); break;
+                        case 2: Relatorio_Compra(); break;
 
-                    default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); Console.Clear(); continue;
+                        default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); Console.Clear(); continue;
+
+                    }
+                    continuar = false;
 
                 }
-                continuar = false;
-
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Por favor, digite um número válido.");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+                Console.Clear();
+                Menu_Cliente();
             }
 
         }
@@ -62,7 +73,7 @@ namespace PIM_III.Interfaces
                     switch (op)
                     {
                         case 1: Comprar(); break;
-                        case 2: Menu_Cliente(); Console.Clear(); break;
+                        case 2: Menu_Cliente(); Console.ReadKey(); Console.Clear(); break;
 
                         default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); continue;
 
