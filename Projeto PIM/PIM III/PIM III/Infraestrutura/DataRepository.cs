@@ -201,7 +201,40 @@ namespace PIM_III.Infraestrutura
                 Console.ReadKey();
             }
 
+        
+
         }
+
+        public string Nome_Cliente { get; set; }
+        public string Data__Compra { get; set; }
+        public string Celular_Cliente { get; set; }
+        public string Name_Produto { get; set; }
+        public int Quant_Produto { get; set; }
+        public float Valor_Total { get; set; }
+        public int Id_prop { get; set; }
+
+
+        public List<DataRepository> Select_Relatorio_Prod(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"SELECT hp.dia||'/'||hp.mes||'/'||hp.ano as Data_Compra,
+                                hp.nome_cliente as Nome_Cliente,
+                                cl.celular as Celular_Cliente,
+                                p.produto as Name_Produto,
+                                p.quantidade as Quant_Produto, 
+                                p.valor as Valor_Total,
+                                pr.id as Id_prop
+                                FROM pedido p
+                                INNER JOIN head_pedido hp ON hp.pedido = p.id_pedido
+                                INNER JOIN cliente cl ON cl.nome = hp.nome_cliente
+                                inner join propriedade pr on pr.email_proprietario = @email;";
+
+            var result_DB_Prod = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email }).ToList();
+
+            return result_DB_Prod;
+        }
+
 
         //CRUD COMPRA E RELATORIO (INTERFACE CLIENTE)__________________________________________________________________________________________________
 
@@ -256,20 +289,26 @@ namespace PIM_III.Infraestrutura
 
         public int ID_Pedido { get; set; }
         public int Quant_Pedido { get; set; }
-        public int Produto_Pedido { get; set; }
+        public string Produto_Pedido { get; set; }
         public float Preco_Pedido { get; set; }
-        public string ValorTotal { get; set; }
+        public float ValorTotal { get; set; }
 
         public List<DataRepository> Select_Relatorio_Cliente(string email)
         {
             using var conn = new DBConnection();
 
-            string query2 = @"select * from pedido where id_pedido = (select ID from pedido_venda pv
-                            where email_cliente = @email order by id desc limit 1);";
+            string query2 = @"select ip.id_pedido as ID_Pedido,
+                                prod_agricola as Produto_Pedido,
+                                ip.quantidade as Quant_Pedido,
+                                ic.preco_unitario as Preco_Pedido,
+                                ip.quantidade * ic.preco_unitario as ValorTotal
+                                from item_pedido ip join info_colheita ic on ic.id_colheita = ip.id_estoque
+                                where ip.id_pedido = (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1)
+                                order by ip.id_pedido;";
 
-            var result_DB_Relatorio = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
+            var result_DB_RelatorioProd = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
 
-            return result_DB_Relatorio;
+            return result_DB_RelatorioProd;
         }
 
     }

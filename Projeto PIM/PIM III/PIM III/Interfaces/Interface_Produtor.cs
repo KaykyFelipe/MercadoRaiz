@@ -37,7 +37,7 @@ namespace PIM_III.Interfaces
                 {
                     case 1: Controle_Estoque();  break;
                     case 2: dicas();  break;
-                    case 3: Relatorio(); break;
+                    case 3: Relatorio_Produtor(); break;
                    
                
                     default: Console.WriteLine("Erro, opção inválida. Tente novamente."); Console.ReadKey(); Console.Clear(); continue;
@@ -165,10 +165,17 @@ namespace PIM_III.Interfaces
 
 
 
-            public void Relatorio()
+            public void Relatorio_Produtor()
             {
 
-            
+            List<DataRepository> DB = DataRepository.Select_Relatorio_Prod(email);
+
+            foreach (var item2 in DB)
+            {
+                Console.WriteLine($"Data Venda {item2.Data__Compra}  Nome Cliente:{item2.Nome_Cliente} | Celular Cliente: {item2.Celular_Cliente}  | Produto: {item2.Name_Produto} | Quantidade: {item2.Quant_Produto} | Valor Total: {item2.Valor_Total} | ID Propriedade: {item2.Id_prop}");
+
+            }
+
             Console.ReadKey();
             Console.Clear();
             menu_produtor();
