@@ -30,6 +30,7 @@ namespace PIM_III.Gerenciamento_Login
                 {
                 Interface_Cliente interface_Cliente = new Interface_Cliente(email);
                 Console.WriteLine("Login Efetuado!!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                 Console.ReadKey();
                 Console.Clear();
                 interface_Cliente.Menu_Cliente();
@@ -40,7 +41,9 @@ namespace PIM_III.Gerenciamento_Login
                 else
                 {
                     Console.WriteLine("Login Invalido!!");
+                    Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
                     Console.ReadKey();
+                    Console.Clear();
                 //**REFAZER CADASTRO(LOOP)
             }
                     

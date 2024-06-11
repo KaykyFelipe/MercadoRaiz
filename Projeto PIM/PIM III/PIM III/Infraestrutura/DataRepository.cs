@@ -19,8 +19,23 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO cliente (email,celular,nome,senha) VALUES
                             (@email,@numero_celular,@nome,@senha);";
 
-            var result = conn.Connection.Execute(sql: query, param: dados);
+            
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: dados);
 
+                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Esse E-mail já está em uso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+            }
 
         }
 
@@ -32,8 +47,23 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO produtor (email,celular,nome,senha,chave_pix) VALUES
                             (@email,@numero_celular,@nome,@senha,@chave_pix);";
 
-            var result = conn.Connection.Execute(sql: query, param: dados);
+            try
+            {
 
+                var result = conn.Connection.Execute(sql: query, param: dados);
+
+                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Esse E-mail já está em uso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+            }
 
         }
 
@@ -146,11 +176,18 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO plantio (data_plantio, id_propriedade, id_prodagricola, area) values 
                    (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE @email = p.email_proprietario),
                    @alimento,
-                   @area_plantio);";
+                   @area_plantio);"; 
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
 
-            var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
+            }
+            catch (Npgsql.PostgresException)
+            {
 
-
+                Console.WriteLine("Erro! Tente Novamente!!");
+                Console.ReadKey();
+            }
 
         }
         public int ID_Plantio { get; set; }
@@ -197,11 +234,10 @@ namespace PIM_III.Infraestrutura
             }
             catch (Npgsql.PostgresException) {
 
-                Console.WriteLine("Erro ao inserir tente novamente!!");
+                Console.WriteLine("Erro! Tente Novamente!!");
                 Console.ReadKey();
             }
-
-        
+           
 
         }
 
@@ -284,7 +320,16 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO item_pedido (quantidade, id_estoque,id_pedido) values 
                             (@quant_prod, @id_produto, (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1));;";
 
-            var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email= email });
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email = email });
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Erro! Tente Novamente!!");
+                Console.ReadKey();
+            }
         }
 
         public int ID_Pedido { get; set; }
