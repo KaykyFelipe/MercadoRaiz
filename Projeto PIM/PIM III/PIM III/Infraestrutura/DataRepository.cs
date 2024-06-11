@@ -19,8 +19,23 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO cliente (email,celular,nome,senha) VALUES
                             (@email,@numero_celular,@nome,@senha);";
 
-            var result = conn.Connection.Execute(sql: query, param: dados);
+            
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: dados);
 
+                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Esse E-mail já está em uso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+            }
 
         }
 
@@ -32,8 +47,23 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO produtor (email,celular,nome,senha,chave_pix) VALUES
                             (@email,@numero_celular,@nome,@senha,@chave_pix);";
 
-            var result = conn.Connection.Execute(sql: query, param: dados);
+            try
+            {
 
+                var result = conn.Connection.Execute(sql: query, param: dados);
+
+                Console.WriteLine("Cadastro realizado com sucesso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Esse E-mail já está em uso!");
+                Console.WriteLine("\n\n\nPressione uma tecla para retornar...");
+                Console.ReadKey();
+            }
 
         }
 
@@ -126,6 +156,18 @@ namespace PIM_III.Infraestrutura
             return result_DB_Plantio;
         }
 
+        public int Area_disponivel { get; set; }
+        public List<DataRepository> Select_Area_Plantada(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query = @"select p.tamanho - p.area_plantada as Area_disponivel from propriedade p where email_proprietario = @email;";
+
+            var result_DB_AreaPlant = conn.Connection.Query<DataRepository>(sql: query, param: new {email = email}).ToList();
+
+            return result_DB_AreaPlant;
+        }
+        
         public void Cadastro_Plantio(string email, int alimento, int area_plantio)
         {
 
@@ -134,11 +176,18 @@ namespace PIM_III.Infraestrutura
             string query = @"INSERT INTO plantio (data_plantio, id_propriedade, id_prodagricola, area) values 
                    (CURRENT_TIMESTAMP, (SELECT p.id FROM propriedade p WHERE @email = p.email_proprietario),
                    @alimento,
-                   @area_plantio);";
+                   @area_plantio);"; 
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
 
-            var result = conn.Connection.Execute(sql: query, param: new { email = email, alimento = alimento, area_plantio = area_plantio });
+            }
+            catch (Npgsql.PostgresException)
+            {
 
-
+                Console.WriteLine("Erro! Tente Novamente!!");
+                Console.ReadKey();
+            }
 
         }
         public int ID_Plantio { get; set; }
@@ -146,8 +195,8 @@ namespace PIM_III.Infraestrutura
         public int Area_Plantada { get; set; }
         public int IDPropriedade { get; set; }
         public string Status_Plantio { get; set; }
-        
-       
+
+
 
 
         public List<DataRepository> Select_Plantio_DB(string email)
@@ -179,8 +228,49 @@ namespace PIM_III.Infraestrutura
                             (data_colheita, quantidade, preco_unitario, id_plantio) VALUES
                             (CURRENT_TIMESTAMP ,@quant_colhida ,@valor_produto , @id_plantio);";
 
-            var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
+            }
+            catch (Npgsql.PostgresException) {
+
+                Console.WriteLine("Erro! Tente Novamente!!");
+                Console.ReadKey();
+            }
+           
+
         }
+
+        public string Nome_Cliente { get; set; }
+        public string Data__Compra { get; set; }
+        public string Celular_Cliente { get; set; }
+        public string Name_Produto { get; set; }
+        public int Quant_Produto { get; set; }
+        public float Valor_Total { get; set; }
+        public int Id_prop { get; set; }
+
+
+        public List<DataRepository> Select_Relatorio_Prod(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"SELECT hp.dia||'/'||hp.mes||'/'||hp.ano as Data_Compra,
+                                hp.nome_cliente as Nome_Cliente,
+                                cl.celular as Celular_Cliente,
+                                p.produto as Name_Produto,
+                                p.quantidade as Quant_Produto, 
+                                p.valor as Valor_Total,
+                                pr.id as Id_prop
+                                FROM pedido p
+                                INNER JOIN head_pedido hp ON hp.pedido = p.id_pedido
+                                INNER JOIN cliente cl ON cl.nome = hp.nome_cliente
+                                inner join propriedade pr on pr.email_proprietario = @email;";
+
+            var result_DB_Prod = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email }).ToList();
+
+            return result_DB_Prod;
+        }
+
 
         //CRUD COMPRA E RELATORIO (INTERFACE CLIENTE)__________________________________________________________________________________________________
 
@@ -209,8 +299,63 @@ namespace PIM_III.Infraestrutura
             var result_DB_Produtos = conn.Connection.Query<DataRepository>(sql: query2, param: new { }).ToList();
 
             return result_DB_Produtos;
-
-
         }
+
+        public void Abertura_Pedido(string email)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO pedido_venda (data, email_cliente) values 
+                            (CURRENT_TIMESTAMP, @email);";
+
+            var result = conn.Connection.Execute(sql: query, param: new { email = email });
+        }
+
+        public void Pedido_Compra(int id_produto, int quant_prod, string email)
+        {
+
+            using var conn = new DBConnection();
+
+            string query = @"INSERT INTO item_pedido (quantidade, id_estoque,id_pedido) values 
+                            (@quant_prod, @id_produto, (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1));;";
+
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email = email });
+            }
+            catch (Npgsql.PostgresException)
+            {
+
+                Console.WriteLine("Erro! Tente Novamente!!");
+                Console.ReadKey();
+            }
+        }
+
+        public int ID_Pedido { get; set; }
+        public int Quant_Pedido { get; set; }
+        public string Produto_Pedido { get; set; }
+        public float Preco_Pedido { get; set; }
+        public float ValorTotal { get; set; }
+
+        public List<DataRepository> Select_Relatorio_Cliente(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"select ip.id_pedido as ID_Pedido,
+                                prod_agricola as Produto_Pedido,
+                                ip.quantidade as Quant_Pedido,
+                                ic.preco_unitario as Preco_Pedido,
+                                ip.quantidade * ic.preco_unitario as ValorTotal
+                                from item_pedido ip join info_colheita ic on ic.id_colheita = ip.id_estoque
+                                where ip.id_pedido = (select ID from pedido_venda pv where email_cliente = @email order by id desc limit 1)
+                                order by ip.id_pedido;";
+
+            var result_DB_RelatorioProd = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
+
+            return result_DB_RelatorioProd;
+        }
+
     }
+
 }
