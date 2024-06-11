@@ -109,10 +109,18 @@ namespace PIM_III.Interfaces
         }
         public void Relatorio_Compras()
         {
-            
-                
 
-            
+            List<DataRepository> DB = DataRepository.Select_Relatorio_Cliente(email);
+
+            foreach (var item2 in DB)
+            {
+                Console.WriteLine($"ID Pedido: {item2.ID_Pedido} | Quantidade: {item2.Quant_Pedido} | Nome Produto:{item2.Produto_Pedido} | Preço Unitario: {item2.Preco_Pedido} | Total Compra: {item2.ValorTotal}");
+
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+            Menu_Cliente();
         }
     }
 }

@@ -137,7 +137,7 @@ namespace PIM_III.Infraestrutura
 
             return result_DB_AreaPlant;
         }
-
+        
         public void Cadastro_Plantio(string email, int alimento, int area_plantio)
         {
 
@@ -191,7 +191,16 @@ namespace PIM_III.Infraestrutura
                             (data_colheita, quantidade, preco_unitario, id_plantio) VALUES
                             (CURRENT_TIMESTAMP ,@quant_colhida ,@valor_produto , @id_plantio);";
 
-            var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
+            try
+            {
+                var result = conn.Connection.Execute(sql: query, param: new { quant_colhida = quant_colhida, valor_produto = valor_produto, id_plantio = id_plantio });
+            }
+            catch (Npgsql.PostgresException) {
+
+                Console.WriteLine("Erro ao inserir tente novamente!!");
+                Console.ReadKey();
+            }
+
         }
 
         //CRUD COMPRA E RELATORIO (INTERFACE CLIENTE)__________________________________________________________________________________________________
@@ -244,5 +253,25 @@ namespace PIM_III.Infraestrutura
 
             var result = conn.Connection.Execute(sql: query, param: new { id_produto = id_produto, quant_prod = quant_prod, email= email });
         }
+
+        public int ID_Pedido { get; set; }
+        public int Quant_Pedido { get; set; }
+        public int Produto_Pedido { get; set; }
+        public float Preco_Pedido { get; set; }
+        public string ValorTotal { get; set; }
+
+        public List<DataRepository> Select_Relatorio_Cliente(string email)
+        {
+            using var conn = new DBConnection();
+
+            string query2 = @"select * from pedido where id_pedido = (select ID from pedido_venda pv
+                            where email_cliente = @email order by id desc limit 1);";
+
+            var result_DB_Relatorio = conn.Connection.Query<DataRepository>(sql: query2, param: new { email = email}).ToList();
+
+            return result_DB_Relatorio;
+        }
+
     }
+
 }

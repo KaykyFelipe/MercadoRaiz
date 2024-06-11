@@ -103,7 +103,7 @@ namespace PIM_III.Interfaces
 
 
 
-                    List<DataRepository> DTB = DataRepository.Select_Area_Plantada(email);
+                   List<DataRepository> DTB = DataRepository.Select_Area_Plantada(email);
 
                     foreach (var item2 in DTB)
                     {
@@ -147,6 +147,8 @@ namespace PIM_III.Interfaces
 
                     DataRepository.Cadastro_Colheita(quant_colhida, valor_produto, id_plantio);
 
+                    Console.Clear();
+
                     menu_produtor();
             }
             
@@ -166,7 +168,9 @@ namespace PIM_III.Interfaces
             public void Relatorio()
             {
 
-                menu_produtor();
+            Console.ReadKey();
+            Console.Clear();
+            menu_produtor();
             }
             
 
