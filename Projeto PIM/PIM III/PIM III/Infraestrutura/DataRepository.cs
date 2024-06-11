@@ -186,7 +186,7 @@ namespace PIM_III.Infraestrutura
             {
 
                 Console.WriteLine("Erro! Tente Novamente!!");
-                Console.ReadKey();
+                
             }
 
         }
@@ -235,7 +235,7 @@ namespace PIM_III.Infraestrutura
             catch (Npgsql.PostgresException) {
 
                 Console.WriteLine("Erro! Tente Novamente!!");
-                Console.ReadKey();
+                
             }
            
 

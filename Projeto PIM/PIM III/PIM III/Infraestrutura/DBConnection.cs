@@ -12,7 +12,7 @@ namespace PIM_III.Infraestrutura
         public NpgsqlConnection Connection { get; set; }
 
         public DBConnection() { 
-         Connection = new NpgsqlConnection("Server=localhost;Port=5432;Database=fazenda;User Id=postgres;Password=1234");
+         Connection = new NpgsqlConnection("Server=localhost;Port=5432;Database=fazenda;User Id=postgres;Password=dbadmin");
             Connection.Open();
         }
 
